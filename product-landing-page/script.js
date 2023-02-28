@@ -173,3 +173,12 @@ accordionHeaders.forEach((accordionHeader) => {
     //     }
   });
 });
+//===========SMOOTH SCROLLING===(//Matching strategy)==========//
+const allNavLists = document.querySelector(".nav-lists");
+
+allNavLists.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (!e.target.classList.contains("nav-link")) return;
+  const idAttribute = e.target.getAttribute("href");
+  document.querySelector(idAttribute).scrollIntoView({ behavior: "smooth" });
+});
