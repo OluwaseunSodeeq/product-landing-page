@@ -162,7 +162,8 @@ document.querySelectorAll(".nav-link").forEach((n) =>
 
 const accordionHeaders = document.querySelectorAll(".acc-header");
 accordionHeaders.forEach((accordionHeader) => {
-  accordionHeader.addEventListener("click", (event) => {
+  accordionHeader.addEventListener("click", (e) => {
+    e.preventDefault();
     accordionHeader.classList.toggle("active");
     //     const accordiumBody = accordionHeader.nextElementSibling;
     //     if(accordionHeader.classList.contains("active")) {
@@ -182,3 +183,100 @@ allNavLists.addEventListener("click", function (e) {
   const idAttribute = e.target.getAttribute("href");
   document.querySelector(idAttribute).scrollIntoView({ behavior: "smooth" });
 });
+
+//REAVILING CONTENTS ON 20% ANIMATION
+const allMySections = document.querySelectorAll("section");
+console.log(allMySections);
+const revealFunction = function (entries, observer) {
+  [entry] = entries;
+  if (!entry.isIntersecting) return;
+  console.log(entry, entry.target);
+
+  entry.target.classList.remove("opa");
+  entry.target.classList.add("trans");
+  observer.unobserve(entry.target);
+};
+
+const sectionObservers = new IntersectionObserver(revealFunction, {
+  root: null,
+  threshold: 0.1,
+});
+
+allMySections.forEach((eachSectn) => {
+  sectionObservers.observe(eachSectn);
+  eachSectn.classList.add("opa");
+  console.log("added");
+});
+///Section of video
+const proVideo = document.querySelector("#playmEiCON");
+const videoParent = document.querySelector("#videoDiv");
+const mainVideo = document.querySelector("main");
+const closeVideoBtn = document.querySelector(".bi-x-lg");
+const videoOverLay = document.querySelector(".videoOverLay");
+const videoContainer = document.querySelector(".videoContainer");
+const videoId = document.querySelector("video");
+console.log(videoId);
+
+proVideo.addEventListener("click", function () {
+  // console.log("Hello");
+  videoId.classList.add("videoStyle");
+  const myVideo = proVideo.src;
+  /*
+  const html = `
+  <main>
+    <div class="videoOverLay">
+      <div class="videoTimes">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-x-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+          />
+        </svg>
+      </div>
+      <div class="videoIframeDiv">
+        <iframe
+          id="videoIframe"
+          src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc?rel=0&amp;controls=0&amp;showinfo=0"
+          frameborder="0"
+          allowfullscreen
+          loop
+        ></iframe>
+      </div>
+    </div>
+  </main>
+  `;
+  videoContainer.insertAdjacentHTML("afterbegin", html);
+  */
+  mainVideo.classList.add("playVideo");
+  videoId.classList.add("leftVideo");
+  videoId.autoplay = true;
+  videoId.load();
+  console.log("it worked");
+
+  // console.log(myVideo);
+
+  // myVideo.play();
+});
+
+const closeVideoFuntion = function () {
+  mainVideo.classList.remove("playVideo");
+  mainVideo.classList.remove("leftVideo");
+};
+closeVideoBtn.addEventListener("click", closeVideoFuntion);
+videoOverLay.addEventListener("click", closeVideoFuntion);
+
+//Play Icon aniamtion
+// function playiconAnimation() {
+//   const pBox = document.querySelector(".pBox");
+//   const pbox = document.querySelector(".pbox");
+//   pBox.classList.add(playAnimation);
+//   pbox.classList.add(playAnimation);
+//   console.log("added aniamtion");
+// }
+// playiconAnimation();
