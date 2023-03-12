@@ -280,3 +280,40 @@ videoOverLay.addEventListener("click", closeVideoFuntion);
 //   console.log("added aniamtion");
 // }
 // playiconAnimation();
+const sectionThreeCardsContainer = document.querySelector(".cards");
+const sectionThreeAllCardContainer = document.querySelectorAll(".card");
+
+const removeHoverFuntion = function () {
+  const firstPathColor = "#3a424e";
+  const mostPathColor = "#00adb5";
+
+  sectionThreeAllCardContainer.forEach((each) => {
+    let allpathAttr = each.querySelectorAll("path"); // each.removeAttribute("fill");
+    [fisrattribute, ...others] = allpathAttr;
+    fisrattribute.setAttribute("fill", firstPathColor);
+    [...others].forEach((each) => {
+      each.setAttribute("fill", mostPathColor);
+    });
+  });
+};
+
+const addHoverFuntion = function (e) {
+  const cardHovered = e.target.closest(".card");
+  const allPathsHoverd = cardHovered.querySelectorAll("path");
+
+  //===to remove the effect from other cards
+  removeHoverFuntion();
+
+  if (!cardHovered) return;
+  allPathsHoverd.forEach((each) => {
+    let myvalue = each.getAttribute("fill");
+    if (myvalue !== null) {
+      each.setAttribute("fill", "#ffffff");
+    }
+  });
+};
+
+//prettier-ignore
+sectionThreeCardsContainer.addEventListener("mouseover", addHoverFuntion.bind());
+// sectionThreeCardsContainer.addEventListener("mouseover",addHoverFuntion); This still works!
+sectionThreeCardsContainer.addEventListener("mouseout", removeHoverFuntion);
