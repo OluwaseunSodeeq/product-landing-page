@@ -9,6 +9,7 @@
     position: relative;
     z-index: 60;
   }
+
   header,
   footer {
     padding: 0 50px;
@@ -22,13 +23,17 @@
   header img {
     max-width: 80%;
   }
+  .slider .section-one-child {
+    margin-top: 200px;
+  }
   .faq {
     width: 100%;
   }
   .faq .right,
-  .faq.left {
+  .faq .left {
     width: 100%;
   }
+
   .right .accordion {
     width: 100%;
   }
@@ -46,7 +51,7 @@
     padding: 25px;
   }
 
-  .cards-container > .card-2 {
+  .cards-wrapper > .card-2 {
     /* width: calc(100% / 2); */
     padding: 0;
   }
@@ -119,9 +124,10 @@
   }
   .section-one-child p {
     margin-top: -1px;
+    padding-top: 30px;
   }
   .section-one-child button {
-    margin-top: 50px;
+    margin-top: 80px;
     z-index: -1;
   }
   .section-two {
@@ -139,6 +145,7 @@
     width: 100%;
     height: auto;
     align-items: center;
+    margin-top: 100px;
   }
   .faq.left {
     width: 100%;
@@ -154,15 +161,18 @@
   .accordion .acc-header::after {
     right: -10rem;
   }
-  .cards-container {
-    padding: 10;
+
+  .card-2 > h4 {
+    margin-top: 20px;
   }
+
   #form,
   .form-section {
     width: 100%;
-    padding: 0px;
-    margin: 0px;
+    padding: 0px 20px;
+    margin-top: 220px;
   }
+
   .first-Input,
   .options {
     width: 80%;
@@ -213,17 +223,59 @@
     padding-bottom: 30px;
   }
 }
+@media (max-width: 760px) {
+  .section-one {
+    height: 700px;
+  }
+  .section-child-one-container-1 > .section-one-child > p,
+  .section-child-one-container-3 > .section-one-child > p {
+    margin-top: 90px;
+    margin-bottom: 0px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+  }
+  .section-child-one-container-1 > .section-one-child > h1,
+  .section-child-one-container-3 > .section-one-child > h1 {
+    margin-top: -30px;
+  }
+  .section-child-one-container-2 > .section-one-child > p {
+    /* margin-top: 10px; */
+    padding: 0px;
+  }
+
+  .section-one-child > button {
+    margin-top: 60px;
+  }
+}
 
 @media (max-width: 600px) {
+  .section-one-child {
+    padding-top: 0px;
+    padding-bottom: 180px;
+    padding-left: 30px;
+  }
+  .section-one-child > button {
+    /* margin-top: 0px; */
+    margin-bottom: -200px;
+  }
   .section-one-child h1 {
     font-size: 30px;
+    margin-top: -30px;
+    padding-bottom: 30px;
+  }
+  .section-child-one-container-1 > .section-one-child > p,
+  .section-child-one-container-3 > .section-one-child > p {
+    margin-top: 0px;
   }
   .section-one-child p {
+    margin-top: -30px;
+    padding-top: 30px;
+
     font-size: 18px;
   }
-  .section-one-child button {
+  /* .section-one-child button {
     margin-top: 9rem;
-  }
+  } */
   .section-two h2,
   .section-two p {
     width: 300px;
@@ -238,7 +290,6 @@
 
   .right {
     width: 90%;
-
     padding: 0 0 20px 30px;
     margin: 0 auto;
   }
@@ -248,6 +299,10 @@
   .accordion .acc-header::after {
     right: -7rem;
   }
+  .cards-wrapper > .card-2 {
+    padding-bottom: 10px;
+  }
+
   footer > .container {
     flex-direction: column;
     justify-content: start;
@@ -265,6 +320,15 @@
   footer {
     width: 100%;
     padding: 0px 20px;
+  }
+
+  .cards-container > .card-2 {
+    height: auto;
+  }
+
+  .card-2-img img {
+    /* width: 70%; */
+    height: auto;
   }
 }
 
@@ -298,7 +362,67 @@
   .accordion .acc-header::after {
     right: -1rem;
   }
+  .section-four {
+    width: 100%;
+    padding: 0;
+  }
+  .section-four,
+  .section-four-bottom {
+    width: 100%;
+  }
+  .section-four-bottom {
+    margin-top: 250px;
+    padding: 0px;
+    text-align: center;
+  }
+  .slider-container {
+    width: 100%;
+    text-align: center;
+    padding: 0 30px auto;
+  }
+  .slide-content,
+  .cards-wrapper {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .card-2-img {
+    width: 100%;
+  }
+  .cards-wrapper > .card-2 > .mini-img {
+    top: 63%;
+  }
+  .form-section,
+  #form {
+    margin-top: -30px;
+  }
+
   .footer-second {
     margin-top: -5px;
+  }
+}
+@media (max-width: 360px) {
+  .section-child-one-container-1 > .section-one-child > p {
+    margin-top: 50px;
+  }
+  .section-child-one-container-1 > .section-one-child > h1 {
+    margin-top: -30px;
+  }
+  .section-child-one-container-1 > .section-one-child > p {
+    margin-top: 20px;
+  }
+  .section-child-one-container-2 > .section-one-child > p {
+    margin-top: 0px;
+  }
+  .section-child-one-container-3 > .section-one-child > p {
+    margin-top: 0px;
+  }
+  .section-one-child > p {
+    margin-top: 20px;
+    padding-top: 0px;
+  }
+  .section-one-child > p .section-one-child > button {
+    margin-top: 20px;
   }
 }

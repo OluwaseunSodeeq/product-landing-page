@@ -1,5 +1,15 @@
 // SECTION ONE SLIDER
+const firstSLiderBtns = document.querySelectorAll(".navigation-auto div");
 
+var counter = 1;
+setInterval(function () {
+  document.getElementById("radio" + counter).checked = true;
+  counter++;
+  if (counter > firstSLiderBtns.length) {
+    counter = 1;
+  }
+}, 5000);
+/*
 const slideContainer = document.querySelector(".section_container");
 const slides = Array.from(slideContainer.children);
 const slideBtns = document.querySelector(".links");
@@ -77,7 +87,7 @@ slideBtns.addEventListener("click", (e) => {
   // currentBtn.classList.remove('current_slide');
   // targetBtn.classList.add('current_slide');
 });
-
+*/
 //  SECTION FOUR SLIDER //
 const sectionFourSlideContainer = document.querySelector(
   ".section_four_container"
@@ -113,18 +123,6 @@ const updatedBtns = (newCurrentBtn, newTargetBtn) => {
   newTargetBtn.classList.add("new_slide");
 };
 
-// prevyButton.addEventListener("click", (e) => {
-//   const newCurrentSlide = sectionFourSlideContainer.querySelector(".new_slide");
-//   const prevySlide = newCurrentSlide.previousElementSibling;
-//   tapToSlide(sectionFourSlideContainer, newCurrentSlide, prevySlide);
-// });
-
-// nextyButton.addEventListener("click", (e) => {
-//   const newCurrentSlide = sectionFourSlideContainer.querySelector(".new_slide");
-//   const nextySlide = newCurrentSlide.nextElementSibling;
-//   moveToSlide(sectionFourSlideContainer, newCurrentSlide, nextySlide);
-// });
-
 sectionFourSlideBtns.addEventListener("click", (e) => {
   const newTargetBtn = e.target.closest("button");
 
@@ -138,9 +136,6 @@ sectionFourSlideBtns.addEventListener("click", (e) => {
   const newTargetSlide = sectionFourSlides[newTargetIndex];
 
   moveToSlide(sectionFourSlideContainer, newCurrentSlide, newTargetSlide);
-
-  // currentBtn.classList.remove('current_slide');
-  // targetBtn.classList.add('current_slide');
 });
 
 // HAMBURGER JS
@@ -186,11 +181,11 @@ allNavLists.addEventListener("click", function (e) {
 
 //REAVILING CONTENTS ON 20% ANIMATION
 const allMySections = document.querySelectorAll("section");
-console.log(allMySections);
+// console.log(allMySections);
 const revealFunction = function (entries, observer) {
   [entry] = entries;
   if (!entry.isIntersecting) return;
-  console.log(entry, entry.target);
+  // console.log(entry, entry.target);
 
   entry.target.classList.remove("opa");
   entry.target.classList.add("trans");
@@ -205,81 +200,78 @@ const sectionObservers = new IntersectionObserver(revealFunction, {
 allMySections.forEach((eachSectn) => {
   sectionObservers.observe(eachSectn);
   eachSectn.classList.add("opa");
-  console.log("added");
+  // console.log("added");
 });
+
 ///Section of video
 const proVideo = document.querySelector("#playmEiCON");
-const videoParent = document.querySelector("#videoDiv");
 const mainVideo = document.querySelector("main");
-const closeVideoBtn = document.querySelector(".bi-x-lg");
-const videoOverLay = document.querySelector(".videoOverLay");
 const videoContainer = document.querySelector(".videoContainer");
-const videoId = document.querySelector("video");
-console.log(videoId);
+
+// console.log(videoId);
 
 proVideo.addEventListener("click", function () {
-  // console.log("Hello");
-  videoId.classList.add("videoStyle");
-  const myVideo = proVideo.src;
-  /*
   const html = `
-  <main>
-    <div class="videoOverLay">
-      <div class="videoTimes">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-x-lg"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
-          />
-        </svg>
+      <div class="videoOverLay">
+        <div class="videoTimes">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-x-lg"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+            />
+          </svg>
+        </div>
+        <div class="videoIframeDiv">
+          <video
+            id="videoIframe"
+            src="./img/652333414.mp4"
+            controls
+            >
+          </video>
+        </div>
       </div>
-      <div class="videoIframeDiv">
-        <iframe
-          id="videoIframe"
-          src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc?rel=0&amp;controls=0&amp;showinfo=0"
-          frameborder="0"
-          allowfullscreen
-          loop
-        ></iframe>
-      </div>
-    </div>
-  </main>
-  `;
+`;
   videoContainer.insertAdjacentHTML("afterbegin", html);
-  */
+  const videoParent = document.querySelector(".videoIframeDiv");
+  const closeVideoBtn = document.querySelector(".bi-x-lg");
+  const videoOverLay = document.querySelector(".videoOverLay");
+  const videoId = document.querySelector("video");
+  console.log(videoParent);
+
+  // videoParent.classList.add("zIndex");
   mainVideo.classList.add("playVideo");
-  videoId.classList.add("leftVideo");
-  videoId.autoplay = true;
+  mainVideo.classList.add("leftVideo");
+  // videoId.autoplay = true;
   videoId.load();
+  videoId.play();
   console.log("it worked");
 
-  // console.log(myVideo);
+  const closeVideoFuntion = function () {
+    mainVideo.classList.remove("playVideo");
+    mainVideo.classList.remove("leftVideo");
+  };
+  const pause = function () {
+    videoId.pause();
+  };
+  const manualControl = function () {
+    const methods = videoId.pause ? "play" : "pause";
+    videoId[methods]();
+    console.log("hi");
+  };
+  videoId.addEventListener("click", pause);
 
-  // myVideo.play();
+  closeVideoBtn.addEventListener("click", closeVideoFuntion);
+  videoOverLay.addEventListener("click", closeVideoFuntion);
+  videoOverLay.addEventListener("click", pause);
+  document.querySelector("#videoIframe").addEventListener("click", pause);
 });
 
-const closeVideoFuntion = function () {
-  mainVideo.classList.remove("playVideo");
-  mainVideo.classList.remove("leftVideo");
-};
-closeVideoBtn.addEventListener("click", closeVideoFuntion);
-videoOverLay.addEventListener("click", closeVideoFuntion);
-
-//Play Icon aniamtion
-// function playiconAnimation() {
-//   const pBox = document.querySelector(".pBox");
-//   const pbox = document.querySelector(".pbox");
-//   pBox.classList.add(playAnimation);
-//   pbox.classList.add(playAnimation);
-//   console.log("added aniamtion");
-// }
-// playiconAnimation();
 const sectionThreeCardsContainer = document.querySelector(".cards");
 const sectionThreeAllCardContainer = document.querySelectorAll(".card");
 
@@ -288,6 +280,7 @@ const removeHoverFuntion = function () {
   const mostPathColor = "#00adb5";
 
   sectionThreeAllCardContainer.forEach((each) => {
+    if (each === null) return;
     let allpathAttr = each.querySelectorAll("path"); // each.removeAttribute("fill");
     [fisrattribute, ...others] = allpathAttr;
     fisrattribute.setAttribute("fill", firstPathColor);
@@ -296,15 +289,14 @@ const removeHoverFuntion = function () {
     });
   });
 };
-
 const addHoverFuntion = function (e) {
+  //To remove the effect from other cards
+  removeHoverFuntion();
   const cardHovered = e.target.closest(".card");
+  if (cardHovered === null) return;
   const allPathsHoverd = cardHovered.querySelectorAll("path");
 
-  //===to remove the effect from other cards
-  removeHoverFuntion();
-
-  if (!cardHovered) return;
+  if (cardHovered === null) return;
   allPathsHoverd.forEach((each) => {
     let myvalue = each.getAttribute("fill");
     if (myvalue !== null) {
@@ -314,6 +306,6 @@ const addHoverFuntion = function (e) {
 };
 
 //prettier-ignore
-sectionThreeCardsContainer.addEventListener("mouseover", addHoverFuntion.bind());
-// sectionThreeCardsContainer.addEventListener("mouseover",addHoverFuntion); This still works!
-sectionThreeCardsContainer.addEventListener("mouseout", removeHoverFuntion);
+// sectionThreeCardsContainer.addEventListener("mouseover", addHoverFuntion.bind());This still works!
+sectionThreeCardsContainer.addEventListener("mouseover",addHoverFuntion);
+sectionThreeCardsContainer.addEventListener("mouseleave", removeHoverFuntion);
