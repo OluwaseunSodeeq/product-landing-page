@@ -1,3 +1,18 @@
+/* For screens less than 1440px wide */
+@media (max-width: 1440px) {
+  .full-width-div {
+    width: 100%;
+  }
+}
+
+/* For screens wider than 1440px */
+@media (min-width: 1441px) {
+  .full-width-div {
+    width: 1440px; /* Or any other fixed width you desire */
+    margin: 0 auto; /* Center the div horizontally */
+  }
+}
+
 @media (max-width: 1200px) {
   main {
     position: absolute;
@@ -126,6 +141,12 @@
     margin-top: -1px;
     padding-top: 30px;
   }
+  .section-two h3 {
+    margin-top: 30px;
+  }
+  .section-two h2 {
+    font-size: 34px;
+  }
   .section-one-child button {
     margin-top: 80px;
     z-index: -1;
@@ -140,6 +161,20 @@
   }
   .section-two > .flexed-icons {
     flex-direction: column;
+  }
+
+  .section-four-top {
+    padding-top: 50px;
+  }
+  .section-four-bottom {
+    margin-top: 100px;
+  }
+  .slide-content {
+    padding-bottom: 0px;
+  }
+  .form-section {
+    padding-top: 0px;
+    margin-bottom: 180px;
   }
   .faq {
     width: 100%;
@@ -166,11 +201,17 @@
     margin-top: 20px;
   }
 
-  #form,
+  #form {
+    padding: 0px;
+    margin: 0px;
+  }
   .form-section {
     width: 100%;
     padding: 0px 20px;
-    margin-top: 220px;
+    margin-top: 20px;
+  }
+  #form {
+    margin-top: -200px;
   }
 
   .first-Input,
@@ -203,7 +244,10 @@
   form #submit {
     margin-bottom: 20px;
   }
-
+  .section-two > .about-team-image {
+    padding: 0px 30px;
+    margin-top: 10px;
+  }
   .footer-third,
   .footer-second {
     margin-top: -5px 0px 0px 0px;
@@ -222,10 +266,10 @@
   footer {
     padding-bottom: 30px;
   }
-}
-@media (max-width: 760px) {
+
   .section-one {
-    height: 700px;
+    /* height: 700px; */
+    height: 100vh;
   }
   .section-child-one-container-1 > .section-one-child > p,
   .section-child-one-container-3 > .section-one-child > p {
@@ -371,7 +415,7 @@
     width: 100%;
   }
   .section-four-bottom {
-    margin-top: 250px;
+    /* margin-top: 250px; */
     padding: 0px;
     text-align: center;
   }
@@ -393,13 +437,15 @@
   .cards-wrapper > .card-2 > .mini-img {
     top: 63%;
   }
-  .form-section,
-  #form {
-    margin-top: -30px;
+  .form-section {
+    margin-top: 20px;
   }
 
   .footer-second {
     margin-top: -5px;
+  }
+  footer {
+    padding-bottom: 30px;
   }
 }
 @media (max-width: 360px) {
